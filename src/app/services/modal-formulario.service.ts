@@ -18,6 +18,7 @@ export class ModalFormularioService {
   }
 
   editarTarefa(id_tarefa: number) {
+    this.idTarefaEditada.set(0);
     this.idTarefaEditada.set(id_tarefa);
   }
 
