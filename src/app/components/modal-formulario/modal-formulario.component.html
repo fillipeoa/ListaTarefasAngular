@@ -1,8 +1,9 @@
-<p-dialog [header]="idTarefa === 0 ? 'Nova Tarefa' : 'Editar Tarefa'" 
-           [modal]="true" 
-           [(visible)]="modalFormularioService.exibirModalFormulario" 
-           [dismissableMask]="true" 
-           [style]="{ width: '25rem' }"
+<p-dialog 
+  [header]="idTarefa === 0 ? 'Nova Tarefa' : 'Editar Tarefa'" 
+  [modal]="true" 
+  [(visible)]="modalFormularioService.exibirModalFormulario" 
+  [dismissableMask]="true" 
+  [style]="{ width: '25rem' }"
 >
   <div class="center-content">
     <p-floatLabel>
@@ -10,35 +11,45 @@
         pInputText
         id="titulo"
         [(ngModel)]="titulo"
-        [style]="{'width':'20rem'}"
-     />
-      <label for="titulo">Titulo</label>
+        [style]="{ 'width': '20rem' }"
+      />
+      <label for="titulo">Título</label>
     </p-floatLabel>
   </div>
 
   <div class="center-content mt-2">
     <p-dropdown 
-        [options]="status" 
-        [(ngModel)]="statusSelecionado" 
-        placeholder="Status"
-        appendTo="body"
-        [style]="{'width':'20rem'}"
+      [options]="status" 
+      [(ngModel)]="statusSelecionado" 
+      placeholder="Status"
+      appendTo="body"
+      [style]="{ 'width': '20rem' }"
     />
   </div>
 
   <div class="center-content mt-2">
     <p-calendar
-        [(ngModel)]="prazo_final"
-        appendTo="body"
-        [style]="{'width':'20rem'}"
-        dateFormat="dd/mm/yy"
+      [(ngModel)]="prazo_final"
+      appendTo="body"
+      [style]="{ 'width': '20rem' }"
+      dateFormat="dd/mm/yy"
     />
   </div>
 
   <div class="center-content mt-3">
     <div>
-        <p-button label="Cancelar" severity="secondary" (onClick)="limparFormulario(); modalFormularioService.ocultar()" [style]="{'margin-right': '1rem'}"/>
-        <p-button label="Salvar" severity="contrast" [disabled]="titulo===''" (onClick)="salvarTarefa()" />
+      <p-button 
+        label="Cancelar" 
+        severity="secondary" 
+        (click)="limparFormulario(); modalFormularioService.ocultar()" 
+        [style]="{ 'margin-right': '1rem' }"
+      />
+      <p-button 
+        label="Salvar" 
+        severity="contrast" 
+        [disabled]="titulo==''" 
+        (click)="salvarTarefa()"
+      />
     </div>
   </div>
 </p-dialog>

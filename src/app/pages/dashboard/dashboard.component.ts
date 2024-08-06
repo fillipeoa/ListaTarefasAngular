@@ -1,19 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CardModule } from 'primeng/card';
-import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
-import { CardResumoComponent } from '../../components/card-resumo/card-resumo.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DialogModule } from 'primeng/dialog';
 import { MenuModule } from 'primeng/menu';
-import { FormatarDataExtensoPipe } from '../../pipes/formatar-data-extenso.pipe';
+import { TagModule } from 'primeng/tag';
+import { ToastModule } from 'primeng/toast';
+import { TooltipModule } from 'primeng/tooltip';
+
+import { CardResumoComponent } from '../../components/card-resumo/card-resumo.component';
+import { ModalFormularioComponent } from '../../components/modal-formulario/modal-formulario.component';
 import { OpcoesTabelaComponent } from '../../components/opcoes-tabela/opcoes-tabela.component';
 import { TabelaComponent } from '../../components/tabela/tabela.component';
+
 import { TarefasService } from '../../services/tarefas.service';
-import { TooltipModule } from 'primeng/tooltip';
-import { ModalFormularioComponent } from '../../components/modal-formulario/modal-formulario.component';
-import { DialogModule } from 'primeng/dialog';
-import { ToastModule } from 'primeng/toast';
-import { ConfirmDialog, ConfirmDialogModule } from 'primeng/confirmdialog';
+import { FormatarDataExtensoPipe } from '../../pipes/formatar-data-extenso.pipe';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,35 +23,34 @@ import { ConfirmDialog, ConfirmDialogModule } from 'primeng/confirmdialog';
   imports: [
     CommonModule,
     CardModule,
-    TagModule,
     ButtonModule,
+    ConfirmDialogModule,
+    DialogModule,
+    MenuModule,
+    TagModule,
+    ToastModule,
+    TooltipModule,
     CardResumoComponent,
+    ModalFormularioComponent,
     OpcoesTabelaComponent,
     TabelaComponent,
-    MenuModule,
-    FormatarDataExtensoPipe,
-    TooltipModule,
-    ModalFormularioComponent,
-    DialogModule,
-    ToastModule,
-    ConfirmDialogModule   
+    FormatarDataExtensoPipe
   ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   
-  dataAtual = new Date();
-
+  dataAtual: Date = new Date();
   visible: boolean = false;
 
   constructor(protected tarefasService: TarefasService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.tarefasService.getAll();
   }
 
-  showDialog() {
-      this.visible = true;
+  showDialog(): void {
+    this.visible = true;
   }
 }

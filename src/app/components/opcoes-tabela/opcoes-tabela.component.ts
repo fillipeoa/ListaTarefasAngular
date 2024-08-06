@@ -16,39 +16,39 @@ import { ModalFormularioService } from '../../services/modal-formulario.service'
     ButtonModule
   ],
   templateUrl: './opcoes-tabela.component.html',
-  styleUrl: './opcoes-tabela.component.scss'
+  styleUrls: ['./opcoes-tabela.component.scss']
 })
 export class OpcoesTabelaComponent {
+  opcaoVisualizacaoSelecionada: string | null = null;
+  opcoesVisualizacao: { label: string; value: string }[] = [
+    { label: 'Hoje', value: 'dia' },
+    { label: 'Esta Semana', value: 'semana' }
+  ];
+
+  statusSelecionados: string[] = [];
+  status: { label: string; value: string }[] = [
+    { label: 'Não iniciada', value: 'Não iniciada' },
+    { label: 'Em andamento', value: 'Em andamento' },
+    { label: 'Concluida', value: 'Concluida' }
+  ];
+
   constructor(
     private tarefasService: TarefasService,
     protected modalFormularioService: ModalFormularioService
-  ) { }
+  ) {}
 
-  opcaoVisualizacaoSelecionada!: string;
-  opcoesVisualizacao: any[] = [
-      { label: 'Hoje', value: 'dia' },
-      { label: 'Esta Semana', value: 'semana' },
-  ];
-
-  statusSelecionados!: string[];
-  status = [
-      {label: 'Não iniciada', value: 'Não iniciada'},
-      {label: 'Em andamento', value: 'Em andamento'},
-      {label: 'Concluida', value: 'Concluida'}
-  ];
-
-  selecionarStatus() {
+  selecionarStatus(): void {
     this.tarefasService.statusFiltrados.set(this.statusSelecionados);
-  }	
+  }
 
-  limparFiltros() {
+  limparFiltros(): void {
     this.statusSelecionados = [];
     this.tarefasService.statusFiltrados.set(this.statusSelecionados);
     this.opcaoVisualizacaoSelecionada = null;
     this.tarefasService.visualizacaoFiltrada.set(this.opcaoVisualizacaoSelecionada);
-  }	
+  }
 
-  selecionarVisualizacao(){
+  selecionarVisualizacao(): void {
     this.tarefasService.visualizacaoFiltrada.set(this.opcaoVisualizacaoSelecionada);
   }
 }

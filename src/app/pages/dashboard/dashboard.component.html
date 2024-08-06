@@ -1,54 +1,51 @@
 <div class="dashboard-conteudo">
     <p class="conteudo-titulo">Minhas Tarefas</p>
     <p class="conteudo-data">{{ dataAtual | formatarDataExtenso }}</p>
-
+  
     <div class="row">
-        <div class="col-lg-4 col-sm-12 mt-2">
-            <app-card-resumo
-                [titulo]="'Resumo de Hoje'"
-                [porcentagem]="tarefasService.estatisticas.dia.porcentagem"
-                [icone]="'fa-solid fa-calendar-day'"
-                [pTooltip]="tarefasService.estatisticas.dia.texto" 
-                tooltipPosition="bottom" 
-            >
-            ></app-card-resumo>
-        </div>
-        <div class="col-lg-4 col-sm-12 mt-2">
-            <app-card-resumo
-                [titulo]="'Resumo da Semana'"
-                [porcentagem]="tarefasService.estatisticas.semana.porcentagem"
-                [icone]="'fa-solid fa-calendar-week'"
-                [pTooltip]="tarefasService.estatisticas.semana.texto" 
-                tooltipPosition="bottom" 
-            >
-            ></app-card-resumo>
-        </div>
-        <div class="col-lg-4 col-sm-12 mt-2">
-            <app-card-resumo
-                [titulo]="'Resumo do Mês'"
-                [porcentagem]="tarefasService.estatisticas.mes.porcentagem"
-                [icone]="'fa-solid fa-calendar-days'"
-                [pTooltip]="tarefasService.estatisticas.mes.texto" 
-                tooltipPosition="bottom" 
-            >
-            ></app-card-resumo>
-        </div>
+      <div class="col-lg-4 col-sm-12 mt-2">
+        <app-card-resumo
+          [titulo]="'Resumo de Hoje'"
+          [porcentagem]="tarefasService.estatisticas.dia.porcentagem"
+          [icone]="'fa-solid fa-calendar-day'"
+          [pTooltip]="tarefasService.estatisticas.dia.texto"
+          tooltipPosition="bottom"
+        ></app-card-resumo>
+      </div>
+      <div class="col-lg-4 col-sm-12 mt-2">
+        <app-card-resumo
+          [titulo]="'Resumo da Semana'"
+          [porcentagem]="tarefasService.estatisticas.semana.porcentagem"
+          [icone]="'fa-solid fa-calendar-week'"
+          [pTooltip]="tarefasService.estatisticas.semana.texto"
+          tooltipPosition="bottom"
+        ></app-card-resumo>
+      </div>
+      <div class="col-lg-4 col-sm-12 mt-2">
+        <app-card-resumo
+          [titulo]="'Resumo do Mês'"
+          [porcentagem]="tarefasService.estatisticas.mes.porcentagem"
+          [icone]="'fa-solid fa-calendar-days'"
+          [pTooltip]="tarefasService.estatisticas.mes.texto"
+          tooltipPosition="bottom"
+        ></app-card-resumo>
+      </div>
     </div>
-
+  
     <hr class="divisor-pagina">
-
+  
     <div class="row">
-        <div class="col-12">
-            <app-opcoes-tabela></app-opcoes-tabela>
-        </div>
+      <div class="col-12">
+        <app-opcoes-tabela></app-opcoes-tabela>
+      </div>
     </div>
-
+  
     <div class="mt-4 div-tabela">
-        <app-tabela></app-tabela>
+      <app-tabela></app-tabela>
     </div>
-
+  
     <app-modal-formulario></app-modal-formulario>
 </div>
-
+  
 <p-toast />
 <p-confirmDialog />
