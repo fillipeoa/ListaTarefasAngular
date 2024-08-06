@@ -1,0 +1,17 @@
+.center{
+    text-align: center;
+    justify-content: center !important;
+}
+
+@media (max-width: 960px) {
+    .center{
+        padding: 0.5rem;
+        border: 2px solid #e5e7eb;
+        border-width: 0 0 2px 0;
+    }
+    .titulo{
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+}
