@@ -38,7 +38,7 @@
   <div class="center-content mt-3">
     <div>
         <p-button label="Cancelar" severity="secondary" (onClick)="limparFormulario(); modalFormularioService.ocultar()" [style]="{'margin-right': '1rem'}"/>
-        <p-button label="Salvar" [disabled]="titulo===''" (onClick)="salvarTarefa()" />
+        <p-button label="Salvar" severity="contrast" [disabled]="titulo===''" (onClick)="salvarTarefa()" />
     </div>
   </div>
 </p-dialog>

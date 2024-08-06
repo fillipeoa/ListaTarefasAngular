@@ -5,6 +5,12 @@
     padding-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+    .dashboard-conteudo{
+        width: 90%;
+    }
+}
+
 .conteudo-titulo{
     margin: 0;
     margin-top: 3rem;

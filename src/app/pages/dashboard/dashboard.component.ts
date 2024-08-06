@@ -13,6 +13,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ModalFormularioComponent } from '../../components/modal-formulario/modal-formulario.component';
 import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
+import { ConfirmDialog, ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,7 +31,8 @@ import { ToastModule } from 'primeng/toast';
     TooltipModule,
     ModalFormularioComponent,
     DialogModule,
-    ToastModule
+    ToastModule,
+    ConfirmDialogModule   
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

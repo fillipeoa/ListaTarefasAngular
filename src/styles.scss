@@ -13,3 +13,21 @@ body{
 .p-card{
     border-radius: 1rem;
 }
+
+.p-selectbutton .p-button.p-highlight{
+    background-color: #1f2937;
+    border-color: #1f2937;
+}
+
+.p-button:focus{
+    box-shadow: none;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight{
+    background-color: #1f2937;
+    border-color: #1f2937;
+}
+
+.p-multiselect:not(.p-disabled):hover{
+    border-color: #1f2937;
+}

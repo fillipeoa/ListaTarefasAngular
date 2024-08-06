@@ -4,7 +4,7 @@ import { TagModule } from 'primeng/tag';
 import { TarefasService } from '../../services/tarefas.service';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ModalFormularioService } from '../../services/modal-formulario.service';
 
 @Component({
@@ -23,7 +23,8 @@ export class TabelaComponent {
   constructor(
     private tarefasService: TarefasService,
     private messageService: MessageService,
-    private modalFormularioService: ModalFormularioService
+    private modalFormularioService: ModalFormularioService,
+    private confirmationService: ConfirmationService
   ) { }
   
   ngOnInit() {
@@ -49,16 +50,28 @@ export class TabelaComponent {
     this.modalFormularioService.editarTarefa(id_tarefa);
   }
   
-  excluirTarefa(id_tarefa: number){
-    this.tarefasService.delete(id_tarefa)
-    .subscribe((res: any)=>{
-      this.tarefasService.getAll();
-      this.messageService.add({severity:'success', summary:'Tarefa excluída', detail:'Tarefa excluída com sucesso!'});
-    },
-    (error: any)=>{
-      this.messageService.add({severity:'error', summary:'Erro ao excluir', detail:'Erro ao excluir tarefa!'});
-    }
-    );
+  excluirTarefa(id_tarefa: number, titulo: string){
+    this.confirmationService.confirm({
+      message: 'Deseja mesmo excluir a tarefa "'+titulo+'"?',
+      header: 'Excluir tarefa',
+      icon: 'pi pi-info-circle',
+      acceptLabel: 'Excluir',
+      rejectLabel: 'Cancelar',
+      acceptButtonStyleClass:"p-button-danger p-button-text",
+      rejectButtonStyleClass:"p-button-secondary p-button-text",
+
+      accept: () => {
+        this.tarefasService.delete(id_tarefa)
+          .subscribe((res: any)=>{
+            this.tarefasService.getAll();
+            this.messageService.add({severity:'success', summary:'Tarefa excluída', detail:'Tarefa excluída com sucesso!'});
+          },
+          (error: any)=>{
+            this.messageService.add({severity:'error', summary:'Erro ao excluir', detail:'Erro ao excluir tarefa!'});
+          }
+          );
+      }
+    });
   }
   
   obterCorStatus(status: any) {
