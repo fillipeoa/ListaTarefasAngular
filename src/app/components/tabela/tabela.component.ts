@@ -5,6 +5,7 @@ import { TarefasService } from '../../services/tarefas.service';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { MessageService } from 'primeng/api';
+import { ModalFormularioService } from '../../services/modal-formulario.service';
 
 @Component({
   selector: 'app-tabela',
@@ -21,7 +22,8 @@ import { MessageService } from 'primeng/api';
 export class TabelaComponent {
   constructor(
     private tarefasService: TarefasService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private modalFormularioService: ModalFormularioService
   ) { }
   
   ngOnInit() {
@@ -42,10 +44,10 @@ export class TabelaComponent {
     return tarefasFiltradas;
   });
 
-  onItemAdded(x: string) {
-    //this.tarefasService.add(x);
+  editarTarefa(id_tarefa: number){
+    this.modalFormularioService.exibir();
+    this.modalFormularioService.editarTarefa(id_tarefa);
   }
-
   
   excluirTarefa(id_tarefa: number){
     this.tarefasService.delete(id_tarefa)

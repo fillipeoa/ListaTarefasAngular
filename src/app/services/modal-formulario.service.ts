@@ -5,6 +5,7 @@ import { Injectable, signal } from '@angular/core';
 })
 export class ModalFormularioService {
   public exibirModalFormulario = signal<boolean>(false);
+  public idTarefaEditada = signal<number>(0);
 
   constructor() {}
 
@@ -15,4 +16,9 @@ export class ModalFormularioService {
   ocultar() {
     this.exibirModalFormulario.set(false);
   }
+
+  editarTarefa(id_tarefa: number) {
+    this.idTarefaEditada.set(id_tarefa);
+  }
+
 }

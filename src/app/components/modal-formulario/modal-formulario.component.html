@@ -1,4 +1,4 @@
-<p-dialog header="Nova Tarefa" 
+<p-dialog [header]="idTarefa === 0 ? 'Nova Tarefa' : 'Editar Tarefa'" 
            [modal]="true" 
            [(visible)]="modalFormularioService.exibirModalFormulario" 
            [dismissableMask]="true" 
@@ -31,6 +31,7 @@
         [(ngModel)]="prazo_final"
         appendTo="body"
         [style]="{'width':'20rem'}"
+        dateFormat="dd/mm/yy"
     />
   </div>
 
