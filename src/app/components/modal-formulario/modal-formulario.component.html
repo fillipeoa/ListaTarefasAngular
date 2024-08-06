@@ -1,0 +1,43 @@
+<p-dialog header="Nova Tarefa" 
+           [modal]="true" 
+           [(visible)]="modalFormularioService.exibirModalFormulario" 
+           [dismissableMask]="true" 
+           [style]="{ width: '25rem' }"
+>
+  <div class="center-content">
+    <p-floatLabel>
+      <input
+        pInputText
+        id="titulo"
+        [(ngModel)]="titulo"
+        [style]="{'width':'20rem'}"
+     />
+      <label for="titulo">Titulo</label>
+    </p-floatLabel>
+  </div>
+
+  <div class="center-content mt-2">
+    <p-dropdown 
+        [options]="status" 
+        [(ngModel)]="statusSelecionado" 
+        placeholder="Status"
+        appendTo="body"
+        [style]="{'width':'20rem'}"
+    />
+  </div>
+
+  <div class="center-content mt-2">
+    <p-calendar
+        [(ngModel)]="prazo_final"
+        appendTo="body"
+        [style]="{'width':'20rem'}"
+    />
+  </div>
+
+  <div class="center-content mt-3">
+    <div>
+        <p-button label="Cancelar" severity="secondary" (onClick)="limparFormulario(); modalFormularioService.ocultar()" [style]="{'margin-right': '1rem'}"/>
+        <p-button label="Salvar" [disabled]="titulo===''" (onClick)="salvarTarefa()" />
+    </div>
+  </div>
+</p-dialog>

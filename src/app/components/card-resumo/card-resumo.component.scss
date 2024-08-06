@@ -1,0 +1,40 @@
+.conteudo{
+    display: flex;
+}
+
+.col-4, .col-6, .col-8{
+    padding: 0;
+}
+
+.conteudo-resumo{
+    width: 70%;
+    display: inline-block
+}
+
+.conteudo-resumo-titulo{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.conteudo-resumo-porcentagem{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
+    color: #FABB18;
+}
+
+.conteudo-icone{
+    width: 30%;
+    border-radius: 1rem;
+    background-color: #faba182a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-icone i{
+    font-size: 2.5rem;
+    color: #f0a400;
+}

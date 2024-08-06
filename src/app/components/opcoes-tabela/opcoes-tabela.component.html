@@ -1,0 +1,41 @@
+
+<div style="display: flex; align-items: center;">
+    <div
+        style="padding-right: 1rem;"
+    >
+        <p-selectButton 
+            [options]="opcoesVisualizacao" 
+            [(ngModel)]="opcaoVisualizacaoSelecionada" 
+            (onChange)="selecionarVisualizacao()"
+        />
+    </div>
+    <div
+        style="padding-right: 1rem;"
+    >
+        <p-multiSelect 
+            class="multiselect-status"
+            [options]="status" 
+            [(ngModel)]="statusSelecionados" 
+            placeholder="Status da Tarefa"
+            (onChange)="selecionarStatus()"
+        />
+    </div>
+    @if (statusSelecionados?.length > 0 || opcaoVisualizacaoSelecionada)
+    {
+        <p-button
+            icon="pi pi-times"
+            severity="secondary"
+            [raised]="true"
+            size="small"
+            (click)="limparFiltros()"
+        />
+    }
+
+    <p-button
+        label="Nova Tarefa"
+        icon="pi pi-plus"
+        class="btn-nova-tarefa"
+        (click)="modalFormularioService.exibir()"
+    />
+
+</div>
